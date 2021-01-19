@@ -9,7 +9,7 @@
       
 <style>
 .button2 {
-  background-color: white; 
+  background-color:white; 
   color: black; 
   border: 2px solid #008CBA;
   width:200px;
@@ -286,7 +286,8 @@ body {
 </div>
 
 <ul id="nav-lists">
-    <li class="close"><span onclick="Hide()">X<style>
+    <li class="close"><span onclick="Hide()">
+    X<style>
 *,
 *::before,
 *::after {
@@ -476,7 +477,46 @@ body {
   margin: 0 auto;
   padding: 10px;
 }
+
 </style>
+<style type="text/css">
+.custom-input {
+  position: relative;
+}
+input[type=email] {
+  background: transparent;
+  border: none;
+  border-bottom: solid 1px #fafafa;
+  padding: 5px;
+  transition: padding 0.4s;
+}
+input[type=email]:placeholder-shown + label {
+  color: #0cf598;
+  font-size: 14px;
+  left: 5px;
+  top: 5px;
+}
+label,
+input[type=email]:focus + label{
+  color: #ff058f;
+  font-size: 12px;
+  left: 2px;
+  pointer-events: none;
+  position: absolute;
+  top: 2px;
+  transition: top 0.4s, left 0.4s, font-size 0.4s;
+}
+input[type=email]::placeholder{
+  color: transparent;
+}
+input[type=email]:focus,
+input[type=email]:not(:placeholder-shown) {
+  border-bottom: solid 1px #ffffff;
+  outline: none;
+  padding: 20px 5px 5px;
+}
+</style>
+
 </span></li>
     <li><a href="#">Home</a></li>
     <li><a href="#">Blog</a></li>
@@ -502,18 +542,25 @@ navList.classList.remove("_Menus-show");
   <div class="bg bg2"></div>
   <div class="bg bg3"></div>
   <h1 style="margin:80px">
-    <input id="price" style="width:200px;height:40px;border-color:green;border-style:solid;border-radius:3px;"placeholder=" Price"
-  >
-    <br><br>
-    <input id="discount" style="width:200px;height:40px;border-color:green;border-style:solid;border-radius:3px;"placeholder="  Discount %"
-      >
-    <br><br>
+    <div class="custom-input">
+    <input id="price" type="email" placeholder="Email Address" />
+    <label for="Rupees">₹ Rupees</label>
+    </div>
+    <br>
+    <div class="custom-input">
+    <input id="discount" type="email" placeholder="Email Address" />
+    <label for="Rupees">discount %</label>
+    </div>
+    <br>
+  
     <button class="button2"onclick="getPrice()">
 Get total
 </button>
     <br><br>
-    <input readonly id="total" style="width:200px;height:40px;border-color:red;border-style:solid;border-radius:3px;" placeholder="  Your Price">
-    <script>
+     <div class="custom-input">
+     <input id="total" type="email" placeholder="Email Address" />
+     <label for="Rupees">Your Price ₹</label>
+     </div><script>
         getPrice = function() {
             var numVal1 = Number(document.getElementById("price").value);
             var numVal2 = Number(document.getElementById("discount").value) / 100;
@@ -523,7 +570,7 @@ Get total
     </script>
     </h1>
     <button onClick="window.location.reload();">
-    <i class="fa fa-refresh" style="font-size:48px;color:blue"></i>
-    </button>  
+   <img src="kr.png"width="40px">
+   </button>  
 </body>
 </html>
